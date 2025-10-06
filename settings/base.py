@@ -1,4 +1,6 @@
 from pathlib import Path
+
+from django.apps import apps
 #----------------------------------Path----------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 WSGI_APPLICATION = 'settings.wsgi.application'
@@ -16,8 +18,9 @@ DJANGO_AND_THIRD_PARTY_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps'
 ]
-PROJECT_APPS = []
+PROJECT_APPS = [apps.tasks]
 
 INSTALLED_APPS = PROJECT_APPS + DJANGO_AND_THIRD_PARTY_APPS
 
@@ -64,7 +67,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 #------------------------------------URLS-------------------------------------------------------
-ROOT_URLCONF = 'djangorlar.urls'
+ROOT_URLCONF = 'settings.urls'
 
 
 # -------------------------------Internationalization--------------------------------
